@@ -1,0 +1,55 @@
+.Login-Window{
+  background-color: hsl(0, 0%, 95%);
+  min-height: 100vh;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+.Login-Form{
+  background-color: #ffffff;
+  flex-direction: column;
+  width: 50%;
+  margin-left: 25%;
+  margin-top : 10%;
+  text-align: center;
+  -webkit-box-shadow: 0px 0px 5px 1px rgba(0,0,0,0.20);
+  box-shadow: 0px 0px 5px 1px rgba(0,0,0,0.20);
+}
+
+.Login-Form-Title{
+  padding-top: 10%;
+}
+
+.Login-Form-TextInput{
+  width: 60%;
+  margin-bottom: 3%;
+  padding : 2%;
+  border-width: 0px;
+  border-bottom-width: 2px;
+}
+.Login-Form-TextInput:focus{
+  outline: none;
+  border-bottom-width: 2px;
+  border-bottom-color: #ff4d4d;
+}
+
+.Login-Form-Button{
+  padding : 2%;
+  border-radius: 0px;
+  margin-top: 5%;
+  width: 60%;
+  background-color: #ff4d4d;
+  color: #fff;
+  border-width: 0px;
+  font-weight: bold;
+  margin-bottom: 10%;
+}
+
+.Login-Form-Button:focus{
+  outline: none;
+}
+
+.Login-Form-Button:active{
+  background-color: #ff9999;
+}

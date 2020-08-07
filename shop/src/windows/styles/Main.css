@@ -1,0 +1,81 @@
+.Main-Window{
+  background-color: hsl(0, 0%, 95%);
+  min-height: 100vh;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+.Main-Body{
+  margin-top: 4%;
+  display: flex;
+  flex : 1;
+  flex-direction: row;
+  height: 100%;
+  background-color: #f2f2f2;
+}
+
+.Main-CardSelection{
+  display: flex;
+  width: 30%;
+  background-color: #fff;
+  margin-left: 2.5%;
+  margin-top: 2%;
+  margin-bottom: 6.5%;
+  flex-direction: column;
+  -webkit-box-shadow: 0px 0px 5px 1px rgba(0,0,0,0.20);
+  box-shadow: 0px 0px 5px 1px rgba(0,0,0,0.20);
+}
+
+.Main-CardSelection:hover{
+  background-color: #f2f2f2;
+}
+
+.Main-CardSelection:active{
+  background-color: #e6e6e6;
+}
+
+.Main-CardSelection-Image{
+  flex : 0.6;
+}
+
+.Main-CardSelection-Body{
+  flex : 0.35;
+  padding : 4%;
+}
+
+.Main-CardSelection-Button-Div{
+  flex : 0.05;
+  text-align: center;
+}
+
+.photo{
+  width: 80%;
+  margin : 7.5%;
+  margin-bottom: 0%;
+  max-height: 90%;
+}
+
+.CardSelection-Body-Title{
+  margin-bottom: -10px;
+}
+
+.Main-CardSelection-Button{
+  padding : 2%;
+  border-radius: 0px;
+  margin-top: 5%;
+  width: 85%;
+  background-color: #ff4d4d;
+  color: #fff;
+  border-width: 0px;
+  font-weight: bold;
+  margin-bottom: 10%;
+}
+
+.Main-CardSelection-Button:focus{
+  outline: none;
+}
+
+.Main-CardSelection-Button:active{
+  background-color: #ff9999;
+}

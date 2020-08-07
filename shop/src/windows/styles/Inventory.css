@@ -1,0 +1,204 @@
+div.Inventory-Window{
+  overflow-y: hidden;
+}
+.Inventory-Window{
+  display: flex;
+  min-height: 100vh;
+  background-color: #f2f2f2;
+  flex-direction: column;
+}
+
+.Inventory-Display{
+  display: flex;
+  flex-direction: column;
+  margin : 2%;
+  margin-top : 10%;
+}
+
+.Display-Title-Container{
+  display: flex;
+  flex : 1;
+  padding-left: 3%;
+  background-color: #fff;
+  border-width: 0px;
+  border-bottom-width: 3px;
+  border-bottom-color: #f2f2f2;
+  border-style: solid;
+  flex-direction: row;
+}
+
+.Inventory-Icon{
+  margin : 0px;
+  color : #ff4d4d;
+  margin-left: 15px;
+}
+
+.Iventory-Title-Container{
+  flex : 0.97;
+}
+.Inventory-AddIcon{
+  height: 5vh;
+  fill : #ff4d4d;
+}
+
+.Inventory-AddIcon:hover{
+  filter: invert(39%) sepia(38%) saturate(1440%) hue-rotate(319deg) brightness(90%) contrast(92%);
+}
+
+.Inventory-AddIcon:active{
+  filter: invert(29%) sepia(8%) saturate(360%) hue-rotate(326deg) brightness(100%) contrast(94%);
+}
+
+.Display-Categories-Container{
+  flex : 0.99;
+  padding : 5%;
+  background-color: white;
+  display: flex;
+}
+
+.Category-Card{
+  display: flex;
+  height: 50vh;
+  width: 35vw;
+  margin-bottom: 5%;
+  background-color: white;
+  -webkit-box-shadow: 0px 0px 5px 1px rgba(0,0,0,0.20);
+  box-shadow: 0px 0px 5px 1px rgba(0,0,0,0.20);
+  flex-direction: column;
+  background-color: white;
+  margin-left: 7.5%;
+  margin-right: 5%;
+  border-radius: 5px;
+}
+
+.Category-Card:hover{
+  background-color: #f2f2f2;
+}
+.Category-Card:active{
+  background-color: #e6e6e6;
+}
+.Category-Card-Head{
+  padding-top: 2%;
+  width: 100%;
+  flex : 0.05;
+  border-style: solid;
+  border-width: 0px;
+  border-bottom-width: 2px;
+  border-bottom-color: #f2f2f2;
+  text-align: center;
+  margin-right: 2%;
+}
+.Category-Card-Image{
+  height: 150px;
+}
+
+.Category-Card-Body{
+  text-align: center;
+}
+
+.Display-Categories-Table{
+  width: 100%;
+}
+.Header{
+  display: flex;
+  position: fixed;
+  width: 100%;
+  max-height: 10px;
+}
+.Category-Card-TR{
+  text-align: center;
+}
+.Category-Card-TD{
+  text-align: center;
+  align-items: center;
+}
+
+.Display-Products-Container{
+  flex : 0.99;
+  padding : 2%;
+  background-color: white;
+  display: flex;
+  flex-direction: column;
+}
+
+.Display-Products-Item{
+  display: flex;
+  flex-direction: row;
+  flex : 1;
+  -webkit-box-shadow: 0px 0px 2px 1px rgba(0,0,0,0.20);
+  box-shadow: 0px 0px 2px 1px rgba(0,0,0,0.20);
+  background-color: white;
+  margin-bottom: 2%;
+}
+
+.Display-Products-Item:hover{
+  background-color: #f2f2f2;
+}
+
+.Display-Products-Item:active{
+  background-color: #e6e6e6;
+}
+
+.Product-MiniImage{
+  height: 10vh;
+}
+
+.Product-MiniImage-Container{
+  border-style: solid;
+  flex: 0.1;
+  border-width: 0px;
+  border-right-width: 2px;
+  border-right-color: #f2f2f2;
+}
+
+.Product-Info-Container{
+  display: flex;
+  flex-direction: row;
+  margin-top : auto;
+  margin-bottom: auto;
+  margin-left: 2%;
+  flex: 0.80;
+}
+
+.Product-Actions-Container{
+  display: flex;
+  text-align: left;
+  margin : auto;
+}
+
+.Category-Card-Body-Text{
+  display: flex;
+  margin : 0%;
+  padding : 3%;
+  border-style: solid;
+  border-width: 0px;
+  border-top-width: 3px;
+  border-top-color: #f2f2f2;
+  text-align: center;
+  justify-content: center;
+}
+
+.Inventory-Controls{
+  display: flex;
+  align-items: center;
+}
+
+.Inventory-Product-Icon{
+  margin : auto;
+  color : #ff4d4d;
+}
+
+.Inventory-Control-Text{
+  display: flex;
+  flex : 0.5;
+  margin-left: 15px;
+  color : #ff4d4d;
+}
+
+.Inventory-Control-Text:hover{
+  color : #fa8080;
+}
+
+.Inventory-Control-Text:active{
+  color : #642e2e;
+}

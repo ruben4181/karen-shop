@@ -1,0 +1,153 @@
+.Billing-Window{
+  display: flex;
+  min-height: 100vh;
+  background-color: #f2f2f2;
+  flex-direction: column;
+}
+
+.Bill-Title-Container{
+  display : flex;
+  flex : 1;
+}
+
+.Bill-Control-Text{
+  display: flex;
+  flex : 0.3;
+  color : #ff4d4d;
+}
+
+.Bill-Control-Text:hover{
+  color : #fa8080;
+}
+
+.Bill-Control-Text:active{
+  color : #642e2e;
+}
+
+.Bill-Controls{
+  margin : auto;
+}
+
+.Bill-Container{
+  background-color: white;
+  padding : 0%;
+  flex : 1;
+  flex-direction: row;
+}
+
+.Bill-Footer{
+  background-color: white;
+  text-align: right;
+  padding : 2%;
+  flex : 1;
+}
+
+.Bill-Input-Container{
+  padding : 0px;
+  margin : 0px;
+  flex : 1;
+}
+
+.Bill-ProductList-Container{
+  padding : 1%;
+  flex-direction: column;
+}
+
+.Bill-ProductItem{
+  display: flex;
+  flex-direction: row;
+  border-style: solid;
+  border-width: 2px;
+  border-color: #f2f2f2;
+  padding : 1%;
+  border-bottom-width: 1px;
+}
+
+.Bill-ProductItem-Col1{
+  display: flex;
+  flex-direction: row;
+  flex : 0.5;
+}
+
+.Bill-ProductUnits{
+  width: 5vw;
+  margin-right: 3vw;
+}
+
+.Bill-ProductItem-Col2{
+  display: flex;
+  flex-direction: row;
+  flex : 0.2;
+  padding-left: 2%;
+}
+
+.Bill-ProductItem-Col3{
+  display: flex;
+  flex-direction: row;
+  flex : 0.2;
+  padding-left: 2%;
+}
+
+.Bill-ProductItem-Col4{
+  display: flex;
+  flex : 0.1;
+}
+
+.Bill-ProductName{
+  margin-right: 3%;
+}
+.Bill-ProductBrand{
+  margin-left: 3%;
+}
+
+.Bill-Footer-Button{
+  padding : 10px;
+  border-radius: 0px;
+  margin-top: 0%;
+  width: 20%;
+  background-color: #ff4d4d;
+  color: #fff;
+  border-width: 0px;
+  font-weight: bold;
+  margin-bottom: 10%;
+}
+
+.Bill-Footer-Button:focus{
+  outline: none;
+}
+
+.Bill-Footer-Button:active{
+  background-color: #ff9999;
+}
+
+.MoneyIn-TextField{
+  width: 30%;
+  margin-bottom: 3%;
+  padding : 2%;
+  border-width: 0px;
+  border-bottom-width: 2px;
+}
+.MoneyIn-TextField:focus{
+  outline: none;
+  border-bottom-width: 2px;
+  border-bottom-color: #ff4d4d;
+}
+
+.Client-Container{
+  display: flex;
+  flex : 1;
+}
+
+.Bill-TextField{
+  width : 45%;
+  padding: 10px;
+  border-width: 0px;
+  border-bottom-width: 2px;
+  border-bottom-color: #666666;
+  margin : 1%;
+}
+
+.Bill-TextField:focus{
+  outline: none;
+  border-bottom-color: #ff4d4d;
+}

@@ -1,0 +1,67 @@
+.AddCategory-Window{
+  display: flex;
+  min-height: 100vh;
+  background-color: #f2f2f2;
+  flex-direction: column;
+}
+
+.Category-Form{
+  display: flex;
+  flex : 1;
+  flex-direction: column;
+}
+
+.AddCategories-TextField{
+  padding: 10px;
+  border-width: 0px;
+  border-bottom-width: 2px;
+  border-bottom-color: #666666;
+  margin : 1%;
+}
+
+.AddCategories-TextField:focus{
+  outline: none;
+  border-bottom-color: #ff4d4d;
+}
+
+.AddCategories-Submit{
+  outline: none;
+  padding : 10px;
+  background-color: #ff4d4d;
+  color : white;
+  font-weight: bold;
+  border : none;
+  margin-top : 2%;
+  margin-bottom: 2%;
+}
+
+.AddCategories-Submit:hover{
+  background-color: #fd2424;
+}
+
+.AddCategories-Submit:active{
+  background-color: #ff9999;
+}
+
+.AddCategories-Dropdown{
+  background-color: white;
+  width: 98%;
+  margin: 1%;
+}
+
+.AddCategories-Dropdown-Container{
+  align-items: center;
+  justify-content: center;  
+}
+.AddCategories-File-Container{
+  margin : 1%;
+  border-style: solid;
+  border-width: 0px;
+  border-bottom-width: 2px;
+  padding-bottom: 2%;
+  border-bottom-color: #e6e6e6;
+}
+
+.AddCategories-File-Label{
+  color: #ff4d4d;
+}

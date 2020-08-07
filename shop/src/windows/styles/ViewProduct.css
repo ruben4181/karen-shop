@@ -1,0 +1,38 @@
+.ViewProduct-Contros{
+  display: flex;
+  flex-direction: row;
+  flex : 0.2;
+  align-items: center;
+}
+
+.ViewProduct-Title-Container{
+  display: flex;
+  flex-direction: row;
+  flex : 0.8;
+}
+
+.Control-Text{
+  display: flex;
+  flex : 0.5;
+  color : #ff4d4d;
+}
+
+.Control-Text:hover{
+  color : #fa8080;
+}
+
+.Control-Text:active{
+  color : #642e2e;
+}
+
+.ViewProduct-ImageContainer{
+  align-items: center;
+  justify-content: center;
+  display: flex;
+  flex : 1;
+  flex-direction: column;
+}
+
+.ViewProduct-Image{
+  max-width: 40%;
+}

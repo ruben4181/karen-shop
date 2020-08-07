@@ -1,0 +1,60 @@
+.Bills-Window{
+  display: flex;
+  min-height: 100vh;
+  background-color: #f2f2f2;
+  flex-direction: column;
+}
+
+.Bills-Item{
+  display: flex;
+  background-color:white;
+  margin : 1%;
+  padding : 2%;
+  flex-direction: row;
+  -webkit-box-shadow: 0px 0px 5px 1px rgba(0,0,0,0.20);
+  box-shadow: 0px 0px 5px 1px rgba(0,0,0,0.20);
+}
+
+.Bills-Item:hover{
+  background-color: #f2f2f2;
+}
+
+.Bills-Item:active{
+  background-color: #e6e6e6;
+}
+
+.Bills-Item-Col1{
+  flex : 0.3;
+}
+
+.Bills-Item-Col2{
+  flex : 0.35;
+}
+
+.Bills-Item-Col3{
+  flex : 0.35;
+}
+
+.Filter-Left{
+  flex : 0.6
+}
+
+.Filter-Right{
+  flex : 0.4;
+  margin : auto;
+}
+
+.Bill-Title-Container{
+  display: flex;
+  flex-direction: row;
+  flex : 1;
+  width: 100%;
+}
+
+.Bill-Date{
+  display: flex;
+  flex-direction: row;
+  flex : 1;
+  padding-left: 40%;
+  width: 100%;
+}
