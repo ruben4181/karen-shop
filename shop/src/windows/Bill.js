@@ -110,7 +110,7 @@ class Bill extends React.Component{
       }
     }).catch((err)=>{
       console.log(err);
-      window.electron.dialog.showMessageBoxSync({type:"info", 
+      window.electron.dialog.showMessageBoxSync({type:"none", 
           message : "Ocurrió un error al obtener las facturas\n"+err, buttons : ["ok"]});
     });
   }

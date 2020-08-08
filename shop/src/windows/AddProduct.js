@@ -84,7 +84,7 @@ class AddProduct extends React.Component{
                   value={this.state.barcode} readonly/>
                 <button className="AddProduct-Scann"
                 onClick={(event)=>{event.preventDefault();
-                  window.electron.dialog.showMessageBoxSync({type:"info", 
+                  window.electron.dialog.showMessageBoxSync({type:"none", 
                     message : "Presio ok y scanea el codigo de barras", buttons : ["ok"]});
                 }} 
                   onKeyPress={e => {
@@ -208,7 +208,7 @@ class AddProduct extends React.Component{
     axios.post('http://localhost:3001/inventory/add-product', 
       form, {}).then((resp)=>{
         if(resp.data.result==='OK'){
-          window.electron.dialog.showMessageBoxSync({type:"info", 
+          window.electron.dialog.showMessageBoxSync({type:"none", 
             message : "Producto agregado exitosamente", buttons : ["ok"]});
           let tmp = this.state.fileElement;
           if(tmp){
@@ -227,7 +227,7 @@ class AddProduct extends React.Component{
             parent : ''
           });
         } else{
-          window.electron.dialog.showMessageBoxSync({type:"info", 
+          window.electron.dialog.showMessageBoxSync({type:"none", 
           message : "No fue posible agregar el producto\nCausa: "+resp.data.message, 
           buttons : ["ok"]});
         }
@@ -283,7 +283,7 @@ class AddProduct extends React.Component{
         this.setState({price_out : 0});
       }
     } else{
-      window.electron.dialog.showMessageBoxSync({type:"info", 
+      window.electron.dialog.showMessageBoxSync({type:"none", 
           message : "Solo puedes ingresar numeros en estos campos", buttons : ["ok"]});
       this.setState({price_out : ''});
     }
@@ -304,7 +304,7 @@ class AddProduct extends React.Component{
         this.setState({price_in : 0});
       }
     } else{
-      window.electron.dialog.showMessageBoxSync({type:"info", 
+      window.electron.dialog.showMessageBoxSync({type:"none", 
           message : "Solo puedes ingresar numeros en este campo", buttons : ["ok"]});
       this.setState({price_in : ''});
     }
@@ -317,14 +317,14 @@ class AddProduct extends React.Component{
         this.setState({units : 0});
       }
     } else{
-      window.electron.dialog.showMessageBoxSync({type:"info", 
+      window.electron.dialog.showMessageBoxSync({type:"none", 
           message : "Solo puedes ingresar numeros en este campo", buttons : ["ok"]});
       this.setState({units : ''});
     }
   }
   handleCardClick(id){
     if(id===-1){
-      window.electron.dialog.showMessageBoxSync({type:"info", 
+      window.electron.dialog.showMessageBoxSync({type:"none", 
           message : Number(this.state.priceRatio), buttons : ["ok"]});
     }
   }

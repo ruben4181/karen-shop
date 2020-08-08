@@ -130,7 +130,7 @@ class AddCategory extends React.Component{
           tmp.value = null;
         }
         if(resp.data.result==='OK'){
-          window.electron.dialog.showMessageBoxSync({type:"info", 
+          window.electron.dialog.showMessageBoxSync({type:"none", 
           message : "La categoría se creó correctamente", buttons : ["ok"]});
           this.setState({
             id : '',
@@ -140,7 +140,7 @@ class AddCategory extends React.Component{
             description: ''
           });
         } else{
-          window.electron.dialog.showMessageBoxSync({type:"info", 
+          window.electron.dialog.showMessageBoxSync({type:"none", 
           message : resp.data.message, buttons : ["ok"]});
         }
       }).catch((err)=>{

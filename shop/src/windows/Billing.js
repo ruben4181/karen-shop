@@ -82,12 +82,12 @@ class Billing extends React.Component{
 
   sendBill(){
     if(this.state.payWith!==''){
-      window.electron.dialog.showMessageBoxSync({type:"info", 
+      window.electron.dialog.showMessageBoxSync({type:"none", 
           message : 'Cambio: '+String(Number(this.state.payWith)-Number(this.state.total)), buttons : ["ok"]});
     }
-    if(window.electron.dialog.showMessageBoxSync({type:"info", 
+    if(window.electron.dialog.showMessageBoxSync({type:"none", 
     message : '¿Deseas terminar la venta?', buttons : ["Cancelar", "ok"]})===1){
-      let conf = window.electron.dialog.showMessageBoxSync({type:"info", 
+      let conf = window.electron.dialog.showMessageBoxSync({type:"none", 
       message : '¿Deseas imprimir el recibo?', buttons : ["No", "Si"]})===1;
       let items = [];
       for(let i=0; i<this.state.products.length; i++){
@@ -116,13 +116,13 @@ class Billing extends React.Component{
         }
       }
       axios(config).then((resp)=>{
-        window.electron.dialog.showMessageBoxSync({type:"info", 
+        window.electron.dialog.showMessageBoxSync({type:"none", 
           message : resp.data.message, buttons : ["ok"]});
         this.setState({products : []}, ()=>{
           this.sendLoan(id);
         });
       }).catch((err)=>{
-        window.electron.dialog.showMessageBoxSync({type:"info", 
+        window.electron.dialog.showMessageBoxSync({type:"none", 
           message : "Error al guardar la factura\n"+err, buttons : ["ok"]});
       });
     }
@@ -148,11 +148,11 @@ class Billing extends React.Component{
         }
       }
       axios(config).then((resp)=>{
-        window.electron.dialog.showMessageBoxSync({type:"info", 
+        window.electron.dialog.showMessageBoxSync({type:"none", 
           message : resp.data.message, buttons : ["ok"]});
         this.setState({isLoan : false, total : 0, client : '', clientID : ''}, ()=>{this.props.history.go()})
       }).catch((err)=>{
-        window.electron.dialog.showMessageBoxSync({type:"info", 
+        window.electron.dialog.showMessageBoxSync({type:"none", 
           message : "Error al crear el credito\n"+err, buttons : ["ok"]});
       });
     } else{
@@ -206,11 +206,11 @@ class Billing extends React.Component{
         }
         this.setState({products : buff, total : this.state.total+Number(tmp.price_out)});
       } else{
-        window.electron.dialog.showMessageBoxSync({type:"info", 
+        window.electron.dialog.showMessageBoxSync({type:"none", 
           message : "Producto no está en la base de datos", buttons : ["ok"]});
       }
     }).catch((err)=>{
-      window.electron.dialog.showMessageBoxSync({type:"info", 
+      window.electron.dialog.showMessageBoxSync({type:"none", 
           message : "No se pudó obtener el producto", buttons : ["ok"]});
     });
   }
@@ -274,7 +274,7 @@ class Billing extends React.Component{
   }
 
   delItem(i){
-    if(window.electron.dialog.showMessageBoxSync({type:"info", 
+    if(window.electron.dialog.showMessageBoxSync({type:"none", 
     message : '¿Deseas eliminar este producto de la lista?', buttons : ["Cancelar", "ok"]})===1){
       let total = this.state.total;
       total-=this.state.products[i].unitsSelling*this.state.products[i].price_out;
@@ -299,7 +299,7 @@ class Billing extends React.Component{
         this.setState({payWith : 0});
       }
     } else{
-      window.electron.dialog.showMessageBoxSync({type:"info", 
+      window.electron.dialog.showMessageBoxSync({type:"none", 
           message : "Solo numeros en este campo", buttons : ["ok"]});
     }
   }
@@ -310,7 +310,7 @@ class Billing extends React.Component{
       let total = this.state.total;
       total-=tmp[i].unitsSelling*tmp[i].price_out;
       tmp[i].unitsSelling=0;
-      window.electron.dialog.showMessageBoxSync({type:"info", 
+      window.electron.dialog.showMessageBoxSync({type:"none", 
           message : 'Si desas scannear algún producto, por favor da click en "Codigo de barras del producto" y scannea de nuevo', buttons : ["ok"]});
       
       return this.setState({products : tmp, total});
@@ -330,7 +330,7 @@ class Billing extends React.Component{
         this.setState({products : tmp, total});
       }
     } else{
-      window.electron.dialog.showMessageBoxSync({type:"info", 
+      window.electron.dialog.showMessageBoxSync({type:"none", 
           message : "Solo numeros en este campo", buttons : ["ok"]});
     }
   }

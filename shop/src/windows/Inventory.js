@@ -103,20 +103,20 @@ class Inventory extends React.Component {
 
   onDelete(event){
     event.preventDefault();
-    let conf=window.electron.dialog.showMessageBoxSync({type:"info", 
+    let conf=window.electron.dialog.showMessageBoxSync({type:"none", 
     message : '¿Estas seguro que deseas borrar esta categoría?', buttons : ["Cancelar", "ok"]})===1;
     if(conf){
       axios.get('http://localhost:3001/inventory/del-category?id='+this.state.actualParent).then((resp)=>{
         if(resp.data.result==='OK'){
-          window.electron.dialog.showMessageBoxSync({type:"info", 
+          window.electron.dialog.showMessageBoxSync({type:"none", 
           message : 'Categoría borrada exitosamente', buttons : ["ok"]});
           this.getRootCategories();
         } else{
-          window.electron.dialog.showMessageBoxSync({type:"info", 
+          window.electron.dialog.showMessageBoxSync({type:"none", 
           message : resp.data.message, buttons : ["ok"]});
         }
       }).catch((err)=>{
-        window.electron.dialog.showMessageBoxSync({type:"info", 
+        window.electron.dialog.showMessageBoxSync({type:"none", 
           message : 'Error al borrar categoría\n'+err, buttons : ["ok"]});
       });
     }
@@ -130,7 +130,7 @@ class Inventory extends React.Component {
   }
 
   onUpdate(){
-    let conf = window.electron.dialog.showMessageBoxSync({type:"info", 
+    let conf = window.electron.dialog.showMessageBoxSync({type:"none", 
     message : '¿Deseas modificar esta categoría?', buttons : ["Cancelar", "ok"]})===1;
     if(conf){
       this.props.history.push('/inventory/view-category',{
@@ -169,7 +169,7 @@ class Inventory extends React.Component {
         products : resp.data
       });
     }).catch((err)=>{
-      window.electron.dialog.showMessageBoxSync({type:"info", 
+      window.electron.dialog.showMessageBoxSync({type:"none", 
           message : 'Error al obtener los productos\n'+err, buttons : ["ok"]});
     });
   }
@@ -203,7 +203,7 @@ class Inventory extends React.Component {
       }
     }).catch((err)=>{
       console.log(err);
-      window.electron.dialog.showMessageBoxSync({type:"info", 
+      window.electron.dialog.showMessageBoxSync({type:"none", 
           message : err, buttons : ["ok"]});
     })
   }

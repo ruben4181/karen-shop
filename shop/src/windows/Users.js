@@ -126,19 +126,19 @@ class Users extends React.Component{
       }
       axios(config).then((resp)=>{
         if(resp.data.result==='OK'){
-          window.electron.dialog.showMessageBoxSync({type:"info", 
+          window.electron.dialog.showMessageBoxSync({type:"none", 
           message : 'Usuario creado correctamente', buttons : ["ok"]});
           this.props.history.go();
         } else{
-          window.electron.dialog.showMessageBoxSync({type:"info", 
+          window.electron.dialog.showMessageBoxSync({type:"none", 
           message : 'No se pudó crear el usuario o ya existe', buttons : ["ok"]});
         }
       }).catch((err)=>{
-        window.electron.dialog.showMessageBoxSync({type:"info", 
+        window.electron.dialog.showMessageBoxSync({type:"none", 
           message : 'Error al crear el usuario\n'+err, buttons : ["ok"]});
       })
     } else{
-      window.electron.dialog.showMessageBoxSync({type:"info", 
+      window.electron.dialog.showMessageBoxSync({type:"none", 
           message : 'Contraseñas no coinciden, intente de nuevo', buttons : ["ok"]});
       this.props.history.go();
     }
@@ -200,19 +200,19 @@ class Users extends React.Component{
       }
       axios(config).then((resp)=>{
         if(resp.data.result === 'OK'){
-          window.electron.dialog.showMessageBoxSync({type:"info", 
+          window.electron.dialog.showMessageBoxSync({type:"none", 
           message : 'Contraseña cambiada correctamente', buttons : ["ok"]});
           this.props.history.go();
         } else{
-          window.electron.dialog.showMessageBoxSync({type:"info", 
+          window.electron.dialog.showMessageBoxSync({type:"none", 
           message : 'La contraseña no fue actualizada', buttons : ["ok"]});
         }
       }).catch((err)=>{
-        window.electron.dialog.showMessageBoxSync({type:"info", 
+        window.electron.dialog.showMessageBoxSync({type:"none", 
           message : 'Error al cambiar la contraseña\n'+err, buttons : ["ok"]});
       });
     } else{
-      window.electron.dialog.showMessageBoxSync({type:"info", 
+      window.electron.dialog.showMessageBoxSync({type:"none", 
           message : 'Contraseña nueva no coincide, intente de nuevo', buttons : ["ok"]});
     }
   }
@@ -259,18 +259,18 @@ class Users extends React.Component{
       }
       axios(config).then((resp)=>{
         if(resp.data.result==='OK'){
-          window.electron.dialog.showMessageBoxSync({type:"info", 
+          window.electron.dialog.showMessageBoxSync({type:"none", 
           message : 'Usuario eliminado correctamente', buttons : ["ok"]});
         } else{
-          window.electron.dialog.showMessageBoxSync({type:"info", 
+          window.electron.dialog.showMessageBoxSync({type:"none", 
           message : 'No se eliminó al usuario', buttons : ["ok"]});
         }
       }).catch((err)=>{
-        window.electron.dialog.showMessageBoxSync({type:"info", 
+        window.electron.dialog.showMessageBoxSync({type:"none", 
           message : 'Error al eliminar el usuario\n'+err, buttons : ["ok"]});
       })
     } else{
-      window.electron.dialog.showMessageBoxSync({type:"info", 
+      window.electron.dialog.showMessageBoxSync({type:"none", 
           message : 'Los nombres no coinciden, intente de nuevo', buttons : ["ok"]});
     }
   }

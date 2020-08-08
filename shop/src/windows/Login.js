@@ -55,7 +55,7 @@ class Login extends React.Component{
           username : this.state.username
         });
       } else{
-        window.electron.dialog.showMessageBoxSync({type:"info", 
+        window.electron.dialog.showMessageBoxSync({type:"none", 
           message : "Usuario/contraseña incorrectos, intente de nuevo!", buttons : ["ok"]});
       }
     }).catch((err)=>{

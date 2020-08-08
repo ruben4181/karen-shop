@@ -238,10 +238,10 @@ class ViewProduct extends React.Component{
 
   onUpdate(event){
     event.preventDefault();
-    let conf = window.electron.dialog.showMessageBoxSync({type:"info", 
+    let conf = window.electron.dialog.showMessageBoxSync({type:"none", 
     message : '¿Deseas modificar el producto?', buttons : ["Cancelar", "ok"]})===1;
     if(conf){
-      window.electron.dialog.showMessageBoxSync({type:"info", 
+      window.electron.dialog.showMessageBoxSync({type:"none", 
           message : `El numero que pongas en el campo de unidades serán sumados al numero actual(${this.state.units})`, buttons : ["ok"]});
       this.setState({updating : true, units : 0, unitsText : 'Agregar unidades'});
     }
@@ -249,20 +249,20 @@ class ViewProduct extends React.Component{
 
   onDelete(event){
     event.preventDefault();
-    let conf = window.electron.dialog.showMessageBoxSync({type:"info", 
+    let conf = window.electron.dialog.showMessageBoxSync({type:"none", 
     message : '¿Deseas eliminar permanentemente el producto?', buttons : ["Cancelar", "ok"]})===1;
     if(conf){
       axios.get('http://localhost:3001/inventory/delete-product?id='+this.state.barcode).then((resp)=>{
         if(resp.data.result==='OK'){
-          window.electron.dialog.showMessageBoxSync({type:"info", 
+          window.electron.dialog.showMessageBoxSync({type:"none", 
           message : 'Producto eliminado exitosamente', buttons : ["ok"]});
           this.props.history.goBack();
         } else{
-          window.electron.dialog.showMessageBoxSync({type:"info", 
+          window.electron.dialog.showMessageBoxSync({type:"none", 
           message : resp.data.message, buttons : ["ok"]});
         }
       }).catch((err)=>{
-        window.electron.dialog.showMessageBoxSync({type:"info", 
+        window.electron.dialog.showMessageBoxSync({type:"none", 
           message : 'No se pudó eliminar el producto\n'+err, buttons : ["ok"]});
       })
     }
@@ -291,7 +291,7 @@ class ViewProduct extends React.Component{
         unitsText : 'Unidades disponibles'
       }, window.scrollTo(0, 0));
     }).catch((err)=>{
-      window.electron.dialog.showMessageBoxSync({type:"info", 
+      window.electron.dialog.showMessageBoxSync({type:"none", 
           message : 'No se pudo obtener el producto\n'+err, buttons : ["ok"]});
     });
   }
@@ -318,15 +318,15 @@ class ViewProduct extends React.Component{
             tmp.value=null;
           }
           if(resp.data.result==='OK'){
-            window.electron.dialog.showMessageBoxSync({type:"info", 
+            window.electron.dialog.showMessageBoxSync({type:"none", 
           message : 'Actualización completada', buttons : ["ok"]});
             this.getProduct();
           } else{
-            window.electron.dialog.showMessageBoxSync({type:"info", 
+            window.electron.dialog.showMessageBoxSync({type:"none", 
             message : resp.data.message, buttons : ["ok"]});
           }
         }).catch((err)=>{
-          window.electron.dialog.showMessageBoxSync({type:"info", 
+          window.electron.dialog.showMessageBoxSync({type:"none", 
           message : 'Error al actualizar el producto\n'+err, buttons : ["ok"]});
         });
     }
@@ -365,7 +365,7 @@ class ViewProduct extends React.Component{
       }
     }).catch((err)=>{
       console.log(err);
-      window.electron.dialog.showMessageBoxSync({type:"info", 
+      window.electron.dialog.showMessageBoxSync({type:"none", 
           message : 'Error al obtener las categorías\n'+err, buttons : ["ok"]});
     });
   }
@@ -379,7 +379,7 @@ class ViewProduct extends React.Component{
           this.setState({price_out : 0});
         }
       } else{
-        window.electron.dialog.showMessageBoxSync({type:"info", 
+        window.electron.dialog.showMessageBoxSync({type:"none", 
           message : 'Solo puedes ingresar numeros en este campo', buttons : ["ok"]});
         this.setState({price_out : ''});
       }
@@ -402,7 +402,7 @@ class ViewProduct extends React.Component{
           this.setState({price_in : 0});
         }
       } else{
-        window.electron.dialog.showMessageBoxSync({type:"info", 
+        window.electron.dialog.showMessageBoxSync({type:"none", 
           message : 'Solo puedes ingresar numeros en este campo', buttons : ["ok"]});
         this.setState({price_in : ''});
       }
@@ -417,7 +417,7 @@ class ViewProduct extends React.Component{
           this.setState({units : 0});
         }
       } else{
-        window.electron.dialog.showMessageBoxSync({type:"info", 
+        window.electron.dialog.showMessageBoxSync({type:"none", 
           message : 'Solo puedes ingresar numeros en este campo', buttons : ["ok"]});
         this.setState({units : ''});
       }

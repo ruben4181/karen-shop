@@ -65,7 +65,7 @@ class Loans extends React.Component{
         });
       }
     }).catch((err)=>{
-      window.electron.dialog.showMessageBoxSync({type:"info", 
+      window.electron.dialog.showMessageBoxSync({type:"none", 
           message : 'Error al obtener los creditos', buttons : ["ok"]});
     });
   }

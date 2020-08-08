@@ -121,7 +121,7 @@ class Bills extends React.Component {
           filtered : resp.data
         });
       } else{
-        window.electron.dialog.showMessageBoxSync({type:"info", 
+        window.electron.dialog.showMessageBoxSync({type:"none", 
           message : 'No fue posible obtener las facturas', buttons : ["ok"]});
       }
     }).catch((err)=>{
