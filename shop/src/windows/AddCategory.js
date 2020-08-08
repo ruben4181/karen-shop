@@ -34,7 +34,8 @@ class AddCategory extends React.Component{
     return(
       <div className="AddCategory-Window">
         <SideBar onHide={()=>{this.setState({showNav : !this.state.showNav})}}
-          showNav={this.state.showNav}/>
+          showNav={this.state.showNav} history={this.props.history}
+          username={this.state.username}/>
         <div className="Header">
           <TopBar searchOn={true} history={this.props.history} menu={this.showMenu}
           username={this.state.username}/>

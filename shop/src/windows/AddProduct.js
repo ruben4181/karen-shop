@@ -57,7 +57,8 @@ class AddProduct extends React.Component{
           onScan={this.handleScan}
         />
         <SideBar onHide={()=>{this.setState({showNav : !this.state.showNav})}}
-          showNav={this.state.showNav}/>
+          showNav={this.state.showNav} history={this.props.history}
+          username={this.state.username}/>
         <div className="Header">
           <TopBar searchOn={true} history={this.props.history} menu={this.showMenu}
           username={this.state.username}/>
@@ -174,6 +175,11 @@ class AddProduct extends React.Component{
     );
   }
 
+  showMenu(event){
+    event.preventDefault();
+    this.setState({showNav:!this.state.showNav})
+  }
+  
   onFileSelected(event){
     this.setState({
       fileElement : event.target,

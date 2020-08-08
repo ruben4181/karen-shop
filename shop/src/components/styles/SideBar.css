@@ -1,0 +1,23 @@
+.MenuItem-Container{
+  display: flex;
+  flex : 1;
+  flex-direction: row;
+  padding: 1%;
+  pointer-events: fill;
+}
+
+.MenuItem-Icon{
+  display: flex;
+  flex : 0.1;
+}
+
+.MenuItem-Text{
+  display: flex;
+  flex: 0.9;
+  margin : auto;
+  margin-left: 4%;
+}
+
+.MenuItem-Icon-Image{
+  max-height: 10vh;
+}

@@ -18,13 +18,15 @@ class Bills extends React.Component {
     this.getBills = this.getBills.bind(this);
     this.filterBills = this.filterBills.bind(this);
     this.onFilterChanging = this.onFilterChanging.bind(this);
+    this.showMenu = this.showMenu.bind(this);
     this.getBills();
   }
   render(){
     return(
       <div className="Bills-Window">
         <SideBar onHide={()=>{this.setState({showNav : !this.state.showNav})}}
-          showNav={this.state.showNav}/>
+          showNav={this.state.showNav} history={this.props.history}
+          username={this.state.username}/>
         <div className="Header">
           <TopBar searchOn={true} history={this.props.history} menu={this.showMenu}
           username={this.state.username}/>
@@ -51,6 +53,11 @@ class Bills extends React.Component {
     );
   }
 
+  showMenu(event){
+    event.preventDefault();
+    this.setState({showNav:!this.state.showNav})
+  }
+
   onFilterChanging(event){
     this.setState({
       filter : event.target.value
@@ -68,7 +75,8 @@ class Bills extends React.Component {
           (event)=>{
             event.preventDefault();
             this.props.history.push('/bill', {
-              id : bills[i].id
+              id : bills[i].id,
+              username : this.state.username
             });
           }
           }>

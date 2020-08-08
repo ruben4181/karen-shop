@@ -12,7 +12,7 @@ class Main extends React.Component{
   constructor(props){
     super(props);
     this.state={
-      username : props.location.state ? props.location.state.username : 'ruben4181',
+      username : props.location.state ? props.location.state.username : 'ruben4181xx',
       showNav : false
     }
     this.goToInventory = this.goToInventory.bind(this);
@@ -24,7 +24,8 @@ class Main extends React.Component{
     return(
       <div class="Main-Window">
         <SideBar onHide={()=>{this.setState({showNav : !this.state.showNav})}}
-          showNav={this.state.showNav}/>
+          showNav={this.state.showNav} history={this.props.history}
+          username={this.state.username}/>
         <TopBar searchOn={true} history={this.props.history} menu={this.showMenu}
         username={this.state.username}/>
         <div class="Main-Body">

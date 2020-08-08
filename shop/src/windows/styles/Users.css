@@ -1,0 +1,46 @@
+.Add-User-Display{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  justify-content: center;
+  background-color: white;
+}
+.User-Form{
+  display: flex;
+  flex-direction: column;
+}
+.User-Name-TextField{
+  margin-bottom: 2%;
+}
+
+.User-Name-TextField{
+  width: 60vw;
+  padding: 10px;
+  border-width: 0px;
+  border-bottom-width: 2px;
+  border-bottom-color: #666666;
+  margin : 1%;
+}
+
+.User-Name-TextField:focus{
+  outline: none;
+  border-bottom-color: #ff4d4d;
+}
+
+.Accept-Button{
+  margin: auto;
+  padding : 2%;
+  border-radius: 0px;
+  margin-top: 5%;
+  width: 60%;
+  background-color: #ff4d4d;
+  color: #fff;
+  border-width: 0px;
+  font-weight: bold;
+  margin-bottom: 10%;
+}
+
+.Accept-Button:focus{
+  outline: none;
+}

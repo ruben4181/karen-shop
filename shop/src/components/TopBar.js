@@ -9,10 +9,12 @@ class TopBar extends React.Component{
       search : '',
       history : props.history,
       menu : props.menu,
-      username : props.username
+      username : props.username,
+      changeSearch : props.search
     }
     this.renderTools = this.renderTools.bind(this);
     this.goBack = this.goBack.bind(this);
+    this.searchProduct = this.searchProduct.bind(this);
   }
   render(){
     return(
@@ -44,8 +46,10 @@ class TopBar extends React.Component{
             <h5>Creditos</h5>
           </div>
           <div className="TobBar-NavBar-Search">
-            <form>
+            <form onSubmit={this.searchProduct}>
               <input type="text" placeholder="Buscar producto"
+                value={this.state.search}
+                onChange={(e)=>{this.setState({search : e.target.value})}}
                 className="NavBar-Search-Input"/>
             </form>
           </div>
@@ -65,6 +69,16 @@ class TopBar extends React.Component{
       );
     }
     return items;
+  }
+  searchProduct(event){
+    event.preventDefault();
+    if(this.state.changeSearch){
+      this.state.changeSearch(this.state.search);
+    }
+    this.state.history.push('/product-list', {
+      username : this.state.username,
+      search : this.state.search
+    })
   }
   goBack(event){
     event.preventDefault();

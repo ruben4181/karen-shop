@@ -16,6 +16,7 @@ class Loans extends React.Component{
     }
     this.renderLoans = this.renderLoans.bind(this);
     this.getLoans = this.getLoans.bind(this);
+    this.showMenu = this.showMenu.bind(this);
     this.getLoans();
   }
 
@@ -23,7 +24,8 @@ class Loans extends React.Component{
     return(
       <div className="Inventory-Window">
         <SideBar onHide={()=>{this.setState({showNav : !this.state.showNav})}}
-          showNav={this.state.showNav}/>
+          showNav={this.state.showNav} history={this.props.history}
+          username={this.state.username}/>
         <div className="Header">
           <TopBar searchOn={true} history={this.props.history} menu={this.showMenu}
           username={this.state.username}/>
@@ -48,6 +50,10 @@ class Loans extends React.Component{
         </div>
       </div>
     )
+  }
+  showMenu(event){
+    event.preventDefault();
+    this.setState({showNav:!this.state.showNav})
   }
 
   getLoans(){

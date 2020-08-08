@@ -13,24 +13,3 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
-
-.MenuItem-Container{
-  display: flex;
-  flex : 1;
-  flex-direction: row;
-  background-color: green;
-  padding: 4%;
-}
-
-.MenuItem-Icon{
-  display: flex;
-  flex : 0.1;
-  background-color: yellow;
-}
-
-.MenuItem-Text{
-  display: flex;
-  flex: 0.9;
-  background-color: red;
-  margin-left: 4%;
-}

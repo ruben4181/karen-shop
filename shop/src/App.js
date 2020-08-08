@@ -13,22 +13,26 @@ import Billing from './windows/Billing';
 import Bills from './windows/Bills';
 import Bill from './windows/Bill';
 import Loans from './windows/Loans';
+import Users from './windows/Users';
+import ProductList from './windows/ProductList';
 
 function App() {
   return (
     <BrowserRouter>
       <Switch>
-        <Route className="App-container" path='/' exact component={Login}/>
-        <Route className="App-container" path='/main' exact component={Main}/>
-        <Route className="App-container" path='/inventory' exact component={Inventory}/>
-        <Route className="App-container" path='/inventory/add-category' exact component={AddCategory}/>
-        <Route className="App-container" path="/inventory/add-product" exact component={AddProduct}/>
-        <Route className="App-container" path="/inventory/view-product" exact component={ViewProduct}/>
-        <Route className="App-container" path="/inventory/view-category" exact component={ViewCategory}/>
-        <Route className="App-container" path="/billing" exact component={Billing}/>
-        <Route className="App-container" path="/bills" exact component={Bills}/>
+        <Route path='/' exact component={Login}/>
+        <Route path='/main' exact component={Main}/>
+        <Route path='/inventory' exact component={Inventory}/>
+        <Route path='/inventory/add-category' exact component={AddCategory}/>
+        <Route path="/inventory/add-product" exact component={AddProduct}/>
+        <Route path="/inventory/view-product" exact component={ViewProduct}/>
+        <Route path="/inventory/view-category" exact component={ViewCategory}/>
+        <Route path="/billing" exact component={Billing}/>
+        <Route path="/bills" exact component={Bills}/>
         <Route component={Bill} path="/bill" exact/>
         <Route component={Loans} path="/loans" exact/>
+        <Route component={Users} path="/users" exact/>
+        <Route component={ProductList} pat="/products-list" exact/>
       </Switch>
     </BrowserRouter>
   );

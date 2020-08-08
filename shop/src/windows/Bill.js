@@ -18,13 +18,15 @@ class Bill extends React.Component{
     this.renderProducts = this.renderProducts.bind(this);
     this.getBill = this.getBill.bind(this);
     this.renderIsLoan = this.renderIsLoan.bind(this);
+    this.showMenu = this.showMenu.bind(this);
     this.getBill();
   }
   render(){
     return(
       <div className="Billing-Window">
         <SideBar onHide={()=>{this.setState({showNav : !this.state.showNav})}}
-          showNav={this.state.showNav}/>
+          showNav={this.state.showNav} history={this.props.history}
+          username={this.state.username}/>
         <div className="Header">
           <TopBar searchOn={true} history={this.props.history} menu={this.showMenu}
           username={this.state.username}/>
@@ -55,6 +57,11 @@ class Bill extends React.Component{
         </div>
       </div>
     );
+  }
+
+  showMenu(event){
+    event.preventDefault();
+    this.setState({showNav:!this.state.showNav})
   }
 
   renderIsLoan(){

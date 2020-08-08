@@ -39,6 +39,7 @@ class ViewProduct extends React.Component{
     this.onDelete = this.onDelete.bind(this);
     this.renderButton = this.renderButton.bind(this);
     this.renderImage = this.renderImage.bind(this);
+    this.showMenu = this.showMenu.bind(this);
     this.getCategories();
     this.getProduct();
   }
@@ -60,7 +61,8 @@ class ViewProduct extends React.Component{
     return(
       <div className="AddCategory-Window">
         <SideBar onHide={()=>{this.setState({showNav : !this.state.showNav})}}
-          showNav={this.state.showNav}/>
+          showNav={this.state.showNav} history={this.props.history}
+          username={this.state.username}/>
         <div className="Header">
           <TopBar searchOn={true} history={this.props.history} menu={this.showMenu}
           username={this.state.username}/>
@@ -204,6 +206,11 @@ class ViewProduct extends React.Component{
         </div>
       </div>
     );
+  }
+
+  showMenu(event){
+    event.preventDefault();
+    this.setState({showNav:!this.state.showNav})
   }
 
   renderImage(){
