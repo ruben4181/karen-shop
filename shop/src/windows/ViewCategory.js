@@ -142,7 +142,8 @@ class ViewCategory extends React.Component{
         });
       }
     }).catch((err)=>{
-      alert('NO se pudo obtener la categoría\n'+err);
+      window.electron.dialog.showMessageBoxSync({type:"info", 
+          message : 'No se pudo obtener las categorias', buttons : ["ok"]});
     });
   }
 
@@ -170,7 +171,8 @@ class ViewCategory extends React.Component{
       }
     }).catch((err)=>{
       console.log(err);
-      alert('Error al obtener las categorías');
+      window.electron.dialog.showMessageBoxSync({type:"info", 
+          message : 'Error al obtener las categorías\n'+err, buttons : ["ok"]});
     });
   }
 
@@ -192,13 +194,16 @@ class ViewCategory extends React.Component{
           tmp.value = null;
         }
         if(resp.data.result==='OK'){
-          alert('La categoría se actualizo correctamente');
+          window.electron.dialog.showMessageBoxSync({type:"info", 
+          message : 'La categoría se actualizó correctamente', buttons : ["ok"]});
           this.getCategory();
         } else{
-          alert(resp.data.message);
+          window.electron.dialog.showMessageBoxSync({type:"info", 
+          message : resp.data.message, buttons : ["ok"]});
         }
       }).catch((err)=>{
-        alert(err);
+        window.electron.dialog.showMessageBoxSync({type:"info", 
+          message : err, buttons : ["ok"]});
       });
   }
 
@@ -211,7 +216,7 @@ class ViewCategory extends React.Component{
   }
 
   handleCardClick(id){
-    alert(id);
+    
   }
 
   showMenu(event){

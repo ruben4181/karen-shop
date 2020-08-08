@@ -57,7 +57,8 @@ class ProductList extends React.Component{
         products : resp.data || []
       }, ()=>{this.filterProducts(search)});
     }).catch((err)=>{
-      alert('Error al buscar los productos\n'+err);
+      window.electron.dialog.showMessageBoxSync({type:"info", 
+          message : 'Error al buscar los productos\n'+err, buttons : ["ok"]});
     });
   }
 

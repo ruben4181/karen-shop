@@ -107,7 +107,8 @@ class AddCategory extends React.Component{
       }
     }).catch((err)=>{
       console.log(err);
-      alert('Error al obtener las categorías');
+      window.electron.dialog.showMessageBoxSync({type:"error", 
+          message : "Error al obtener las categorías", buttons : ["ok"]});
     });
   }
 
@@ -129,7 +130,8 @@ class AddCategory extends React.Component{
           tmp.value = null;
         }
         if(resp.data.result==='OK'){
-          alert('La categoría se creó correctamente');
+          window.electron.dialog.showMessageBoxSync({type:"info", 
+          message : "La categoría se creó correctamente", buttons : ["ok"]});
           this.setState({
             id : '',
             name : '',
@@ -138,10 +140,12 @@ class AddCategory extends React.Component{
             description: ''
           });
         } else{
-          alert(resp.data.message);
+          window.electron.dialog.showMessageBoxSync({type:"info", 
+          message : resp.data.message, buttons : ["ok"]});
         }
       }).catch((err)=>{
-        alert(err);
+        window.electron.dialog.showMessageBoxSync({type:"error", 
+          message : err, buttons : ["ok"]});
       });
   }
 
@@ -154,7 +158,7 @@ class AddCategory extends React.Component{
   }
 
   handleCardClick(id){
-    alert(id);
+    
   }
 
   showMenu(event){

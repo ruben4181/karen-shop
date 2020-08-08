@@ -103,17 +103,21 @@ class Inventory extends React.Component {
 
   onDelete(event){
     event.preventDefault();
-    let conf=window.confirm('¿Estas seguro que deseas borrar esta categoría? Tambien borrarías sus productos');
+    let conf=window.electron.dialog.showMessageBoxSync({type:"info", 
+    message : '¿Estas seguro que deseas borrar esta categoría?', buttons : ["Cancelar", "ok"]})===1;
     if(conf){
       axios.get('http://localhost:3001/inventory/del-category?id='+this.state.actualParent).then((resp)=>{
         if(resp.data.result==='OK'){
-          alert('Categoría borrada exitosamente');
+          window.electron.dialog.showMessageBoxSync({type:"info", 
+          message : 'Categoría borrada exitosamente', buttons : ["ok"]});
           this.getRootCategories();
         } else{
-          alert(resp.data.message);
+          window.electron.dialog.showMessageBoxSync({type:"info", 
+          message : resp.data.message, buttons : ["ok"]});
         }
       }).catch((err)=>{
-        alert('No se pudo borrar la categoría\n'+err);
+        window.electron.dialog.showMessageBoxSync({type:"info", 
+          message : 'Error al borrar categoría\n'+err, buttons : ["ok"]});
       });
     }
   }
@@ -126,7 +130,8 @@ class Inventory extends React.Component {
   }
 
   onUpdate(){
-    let conf = window.confirm('¿Deseas modificar la categoría?');
+    let conf = window.electron.dialog.showMessageBoxSync({type:"info", 
+    message : '¿Deseas modificar esta categoría?', buttons : ["Cancelar", "ok"]})===1;
     if(conf){
       this.props.history.push('/inventory/view-category',{
         username : this.state.username,
@@ -164,7 +169,8 @@ class Inventory extends React.Component {
         products : resp.data
       });
     }).catch((err)=>{
-      alert('No fue posible obtener los productos\n'+err);
+      window.electron.dialog.showMessageBoxSync({type:"info", 
+          message : 'Error al obtener los productos\n'+err, buttons : ["ok"]});
     });
   }
   
@@ -197,7 +203,8 @@ class Inventory extends React.Component {
       }
     }).catch((err)=>{
       console.log(err);
-      alert(err);
+      window.electron.dialog.showMessageBoxSync({type:"info", 
+          message : err, buttons : ["ok"]});
     })
   }
 

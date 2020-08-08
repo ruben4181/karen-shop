@@ -82,10 +82,13 @@ class Billing extends React.Component{
 
   sendBill(){
     if(this.state.payWith!==''){
-      alert('Cambio: '+String(Number(this.state.payWith)-Number(this.state.total)));
+      window.electron.dialog.showMessageBoxSync({type:"info", 
+          message : 'Cambio: '+String(Number(this.state.payWith)-Number(this.state.total)), buttons : ["ok"]});
     }
-    if(window.confirm('¿Deseas terminar la venta?')){
-      let conf = window.confirm('¿Deseas imprimir el recibo?');
+    if(window.electron.dialog.showMessageBoxSync({type:"info", 
+    message : '¿Deseas terminar la venta?', buttons : ["Cancelar", "ok"]})===1){
+      let conf = window.electron.dialog.showMessageBoxSync({type:"info", 
+      message : '¿Deseas imprimir el recibo?', buttons : ["No", "Si"]})===1;
       let items = [];
       for(let i=0; i<this.state.products.length; i++){
         items.push({
@@ -113,12 +116,14 @@ class Billing extends React.Component{
         }
       }
       axios(config).then((resp)=>{
-        alert(resp.data.message);
+        window.electron.dialog.showMessageBoxSync({type:"info", 
+          message : resp.data.message, buttons : ["ok"]});
         this.setState({products : []}, ()=>{
           this.sendLoan(id);
         });
       }).catch((err)=>{
-        alert('Error al guardar la factura\n'+err);
+        window.electron.dialog.showMessageBoxSync({type:"info", 
+          message : "Error al guardar la factura\n"+err, buttons : ["ok"]});
       });
     }
   }
@@ -143,10 +148,12 @@ class Billing extends React.Component{
         }
       }
       axios(config).then((resp)=>{
-        alert(resp.data.message);
+        window.electron.dialog.showMessageBoxSync({type:"info", 
+          message : resp.data.message, buttons : ["ok"]});
         this.setState({isLoan : false, total : 0, client : '', clientID : ''}, ()=>{this.props.history.go()})
       }).catch((err)=>{
-        alert('Error al crear el credito\n'+err);
+        window.electron.dialog.showMessageBoxSync({type:"info", 
+          message : "Error al crear el credito\n"+err, buttons : ["ok"]});
       });
     } else{
       this.setState({isLoan : false, total : 0, client : '', clientID : ''}, ()=>{this.props.history.go()})
@@ -199,10 +206,12 @@ class Billing extends React.Component{
         }
         this.setState({products : buff, total : this.state.total+Number(tmp.price_out)});
       } else{
-        alert('No se leyó correctamente o producto no existe en la base de datos');
+        window.electron.dialog.showMessageBoxSync({type:"info", 
+          message : "Producto no está en la base de datos", buttons : ["ok"]});
       }
     }).catch((err)=>{
-      alert('No se pudo obtener el producto\n'+err);
+      window.electron.dialog.showMessageBoxSync({type:"info", 
+          message : "No se pudó obtener el producto", buttons : ["ok"]});
     });
   }
 
@@ -265,7 +274,8 @@ class Billing extends React.Component{
   }
 
   delItem(i){
-    if(window.confirm('¿Desea eliminar este producto de la lista?')){
+    if(window.electron.dialog.showMessageBoxSync({type:"info", 
+    message : '¿Deseas eliminar este producto de la lista?', buttons : ["Cancelar", "ok"]})===1){
       let total = this.state.total;
       total-=this.state.products[i].unitsSelling*this.state.products[i].price_out;
       let a = this.state.products.slice(0, i);
@@ -289,7 +299,8 @@ class Billing extends React.Component{
         this.setState({payWith : 0});
       }
     } else{
-      alert('Solo numeros en este campo')
+      window.electron.dialog.showMessageBoxSync({type:"info", 
+          message : "Solo numeros en este campo", buttons : ["ok"]});
     }
   }
 
@@ -299,7 +310,9 @@ class Billing extends React.Component{
       let total = this.state.total;
       total-=tmp[i].unitsSelling*tmp[i].price_out;
       tmp[i].unitsSelling=0;
-      alert('Si desas scannear algún producto, por favor da click en "Codigo de barras del producto" y scannea de nuevo');
+      window.electron.dialog.showMessageBoxSync({type:"info", 
+          message : 'Si desas scannear algún producto, por favor da click en "Codigo de barras del producto" y scannea de nuevo', buttons : ["ok"]});
+      
       return this.setState({products : tmp, total});
       
     }
@@ -317,7 +330,8 @@ class Billing extends React.Component{
         this.setState({products : tmp, total});
       }
     } else{
-      alert('Solo numeros en este campo')
+      window.electron.dialog.showMessageBoxSync({type:"info", 
+          message : "Solo numeros en este campo", buttons : ["ok"]});
     }
   }
   timeStamp (){

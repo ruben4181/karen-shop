@@ -83,7 +83,10 @@ class AddProduct extends React.Component{
                   }}
                   value={this.state.barcode} readonly/>
                 <button className="AddProduct-Scann"
-                onClick={(event)=>{event.preventDefault(alert('Presiona ok y scannea el codigo'))}} 
+                onClick={(event)=>{event.preventDefault();
+                  window.electron.dialog.showMessageBoxSync({type:"info", 
+                    message : "Presio ok y scanea el codigo de barras", buttons : ["ok"]});
+                }} 
                   onKeyPress={e => {
                   if (e.key === 'Enter') e.preventDefault();
                 }}>Scanear el codigo</button>
@@ -205,7 +208,8 @@ class AddProduct extends React.Component{
     axios.post('http://localhost:3001/inventory/add-product', 
       form, {}).then((resp)=>{
         if(resp.data.result==='OK'){
-          alert('Producto agregado exitosamente');
+          window.electron.dialog.showMessageBoxSync({type:"info", 
+            message : "Producto agregado exitosamente", buttons : ["ok"]});
           let tmp = this.state.fileElement;
           if(tmp){
             tmp.value = null;
@@ -223,10 +227,13 @@ class AddProduct extends React.Component{
             parent : ''
           });
         } else{
-          alert('No fue posible agregar el producto\nCasua: '+resp.data.message);
+          window.electron.dialog.showMessageBoxSync({type:"info", 
+          message : "No fue posible agregar el producto\nCausa: "+resp.data.message, 
+          buttons : ["ok"]});
         }
       }).catch((err)=>{
-        alert(err);
+        window.electron.dialog.showMessageBoxSync({type:"error", 
+          message : err, buttons : ["ok"]});
       })
   }
 
@@ -254,7 +261,8 @@ class AddProduct extends React.Component{
       }
     }).catch((err)=>{
       console.log(err);
-      alert('Error al obtener las categorías');
+      window.electron.dialog.showMessageBoxSync({type:"error", 
+          message : "Error al obtener las categorías", buttons : ["ok"]});
     });
   }
 
@@ -275,7 +283,8 @@ class AddProduct extends React.Component{
         this.setState({price_out : 0});
       }
     } else{
-      alert('Solo puedes ingresar numerso en este campo');
+      window.electron.dialog.showMessageBoxSync({type:"info", 
+          message : "Solo puedes ingresar numeros en estos campos", buttons : ["ok"]});
       this.setState({price_out : ''});
     }
   }
@@ -295,7 +304,8 @@ class AddProduct extends React.Component{
         this.setState({price_in : 0});
       }
     } else{
-      alert('Solo puedes ingresar numerso en este campo');
+      window.electron.dialog.showMessageBoxSync({type:"info", 
+          message : "Solo puedes ingresar numeros en este campo", buttons : ["ok"]});
       this.setState({price_in : ''});
     }
   }
@@ -307,13 +317,15 @@ class AddProduct extends React.Component{
         this.setState({units : 0});
       }
     } else{
-      alert('Solo puedes ingresar numerso en este campo');
+      window.electron.dialog.showMessageBoxSync({type:"info", 
+          message : "Solo puedes ingresar numeros en este campo", buttons : ["ok"]});
       this.setState({units : ''});
     }
   }
   handleCardClick(id){
     if(id===-1){
-      alert(Number(this.state.priceRatio));
+      window.electron.dialog.showMessageBoxSync({type:"info", 
+          message : Number(this.state.priceRatio), buttons : ["ok"]});
     }
   }
 }

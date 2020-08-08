@@ -121,10 +121,12 @@ class Bills extends React.Component {
           filtered : resp.data
         });
       } else{
-        alert('No fue posible obtener las facturas');
+        window.electron.dialog.showMessageBoxSync({type:"info", 
+          message : 'No fue posible obtener las facturas', buttons : ["ok"]});
       }
     }).catch((err)=>{
-      alert('Error al traer las facturas\n'+err);
+      window.electron.dialog.showMessageBoxSync({type:"error", 
+          message : 'Error al obtener las facturas\n'+err, buttons : ["ok"]});
     })
   }
 }

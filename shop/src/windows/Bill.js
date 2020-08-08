@@ -105,11 +105,13 @@ class Bill extends React.Component{
           isLoan : resp.data[0].isLoan
         });
       } else{
-        alert('Hubó un error, intenta más tarde');
+        window.electron.dialog.showMessageBoxSync({type:"error", 
+          message : "Hubo un error, intenta más tarde", buttons : ["ok"]});
       }
     }).catch((err)=>{
       console.log(err);
-      alert('Ocurrió un error al obtener las facturas\n'+err);
+      window.electron.dialog.showMessageBoxSync({type:"info", 
+          message : "Ocurrió un error al obtener las facturas\n"+err, buttons : ["ok"]});
     });
   }
 

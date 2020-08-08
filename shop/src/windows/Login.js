@@ -3,6 +3,7 @@ import './styles/Login.css';
 import TopBar from '../components/TopBar';
 import axios from 'axios';
 
+
 class Login extends React.Component{
   constructor(props){
     super(props);
@@ -54,10 +55,12 @@ class Login extends React.Component{
           username : this.state.username
         });
       } else{
-        alert('Usuario/contraseña incorrectos, intente de nuevo');
+        window.electron.dialog.showMessageBoxSync({type:"info", 
+          message : "Usuario/contraseña incorrectos, intente de nuevo!", buttons : ["ok"]});
       }
     }).catch((err)=>{
-      alert(err);
+      window.electron.dialog.showMessageBoxSync({type:"error", 
+        message : "Usuario/contraseña incorrectos", buttons : ["ok"]});
     });
   }
 }
